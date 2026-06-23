@@ -39,7 +39,7 @@ export async function GET(request){
 
         const token = await getEbayToken()
 
-        const respone = await fetch(
+        const response = await fetch(
             `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${query}&limit=20`,
             {
                 headers: {
