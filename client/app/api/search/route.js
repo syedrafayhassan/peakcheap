@@ -2,7 +2,24 @@
 import { NextResponse } from "next/server";
 
 
+// Simple in-memory cache
+const cache = new Map();
+const CACHE_TIME = 21600000 // 6 hours for searches
+
+
 const getEbayToken = async () => {
+
+    // Check token cache!
+
+    if(cache.has("ebay_token")) {
+        const cached = cache.get("ebay_token")
+        // Use eBay's actual expiry time!
+        if(Date.now() < cached.expiresAt) {
+            return cached.token
+        }
+    }
+
+
     const credentials = Buffer.from(
         `${process.env.EBAY_APP_ID}:${process.env.EBAY_CERT_ID}`
     ).toString('base64')
@@ -20,8 +37,19 @@ const getEbayToken = async () => {
     )
 
     const data = await response.json();
-    return data.access_token;
+    
 
+    // Save token with eBay's expiry time!
+    if(data.access_token) {
+        cache.set("ebay_token", {
+            token: data.access_token,
+            // 5 minute safety buffer!
+            expiresAt: Date.now() + ((data.expires_in - 300) * 1000)
+        })
+        console.log(`Token cached for ${data.expires_in} seconds!`)
+    }
+
+    return data.access_token
 }
 
 
@@ -34,6 +62,16 @@ export async function GET(request){
           return NextResponse.json([], { status: 200 })
         }
 
+        // Check search cache first
+        const cacheKey = `search_${query.toLowerCase()}`
+        if(cache.has(cacheKey)){
+            const cached = cache.get(cacheKey)
+            if(Date.now() - cached.time < CACHE_TIME) {
+                console.log(`Cache hot for: ${query}`)
+                return NextResponse.json(cached.data)
+            }
+        }
+
         const token = await getEbayToken()
 
         if(!token){
@@ -41,7 +79,7 @@ export async function GET(request){
         }
 
         const response = await fetch(
-            `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${query}&limit=20`,
+            `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${encodeURIComponent(query)}&limit=20`,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -65,13 +103,19 @@ export async function GET(request){
 
         const sorted = products.sort((a, b) => a.price - b.price)
 
+        // Save to search cache!
+        cache.set(cacheKey, {
+            data: sorted,
+            time: Date.now()
+        })
+
+        console.log(`Cached results for: ${query}`)
+
         return NextResponse.json(sorted)
 
     
     } catch (error) {
-        return NextResponse.json(
-            { error: error.message },
-            { status: 500 }
-        )
+      console.log("Error:", error.message)
+      return NextResponse.json([], { status: 200 })
     }
 }
