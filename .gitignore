@@ -42,3 +42,9 @@ next-env.d.ts
 
 # Server environment
 server/.env
+
+# Node modules all folders
+node_modules/
+**/node_modules/
+server/node_modules/
+client/node_modules/

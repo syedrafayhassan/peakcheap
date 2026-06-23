@@ -1,10 +1,10 @@
+export const dynamic = "force-dynamic"
+
 "use client"
 
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation"; 
 import ProductCard from "../components/ProductCard";
-import Image from "next/image";
-import SvgImg from "../../public/loading.svg"
 import SkeletonCard from "../components/SkeletonCard";
 
 
