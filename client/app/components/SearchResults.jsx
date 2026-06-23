@@ -22,10 +22,19 @@ useEffect(()=>{
     const fetchProducts = async () =>{
         try{
             setLoading(true)
+            setError(null)
+            setProducts([]) // Always reset to array!
+
             const response = await fetch(`/api/search?query=${query}`)
+
+            // Check if response ok
+            if(!response.ok){
+              setProducts([]) // Set empty array on error!
+              return
+            }
+
             const data  = await response.json()
-            console.log("Data received:", data)
-            console.log("Is array:", Array.isArray(data))
+          
             setProducts(Array.isArray(data) ? data : [])
 
             console.log("First product platform:", data[0].platform)
@@ -42,6 +51,8 @@ useEffect(()=>{
 
     // Filter & Sort Products
 const filteredProducts = useMemo(() => {
+    if(!products || !Array.isArray(products) || products.length === 0 ) return []
+
     let filtered = [...products]
 
     // Platform Filter
