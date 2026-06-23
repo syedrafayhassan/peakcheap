@@ -22,7 +22,7 @@ useEffect(()=>{
     const fetchProducts = async () =>{
         try{
             setLoading(true)
-            const response = await fetch(`http://localhost:5000/api/search?query=${query}`)
+            const response = await fetch(`/api/search?query=${query}`)
             const data  = await response.json()
             setProducts(data)
 
