@@ -11,7 +11,7 @@ const getEbayToken = async () => {
         "https://api.ebay.com/identity/v1/oauth2/token",
         {
             method: "POST",
-            header: {
+            headers: {
                 'Authorization': `Basic ${credentials}`,
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -20,7 +20,7 @@ const getEbayToken = async () => {
     )
 
     const data = await response.json();
-    return data.acess_token;
+    return data.access_token;
 
 }
 
@@ -31,13 +31,14 @@ export async function GET(request){
         const query = searchParams.get("query");
 
         if(!query) {
-            return NextResponse.json(
-                { error: 'Please provide a search query' },
-                { status: 400 }
-            )
+          return NextResponse.json([], { status: 200 })
         }
 
         const token = await getEbayToken()
+
+        if(!token){
+            return NextResponse.json([], { status: 200 })
+        }
 
         const response = await fetch(
             `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${query}&limit=20`,
