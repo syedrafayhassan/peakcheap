@@ -24,7 +24,9 @@ useEffect(()=>{
             setLoading(true)
             const response = await fetch(`/api/search?query=${query}`)
             const data  = await response.json()
-            setProducts(data)
+            console.log("Data received:", data)
+            console.log("Is array:", Array.isArray(data))
+            setProducts(Array.isArray(data) ? data : [])
 
             console.log("First product platform:", data[0].platform)
         }catch(err){
