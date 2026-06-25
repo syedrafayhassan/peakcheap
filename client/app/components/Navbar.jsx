@@ -8,7 +8,7 @@ export default function Navbar() {
       justify-between">
         <Link href="/" className="text-2xl font-extrabold 
         text-blue-600">
-          🔍 PriceHunt
+          🔍 PeakCheap
         </Link>
         <div className="flex gap-6 items-center">
           <Link href="/" className="text-gray-500 
