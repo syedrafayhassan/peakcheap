@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "PriceHunt - Find Cheapest Products",
-  description: "Compare prices from multiple stores",
+  title: "PeakCheap - Find Cheapest Products Online",
+  description: "Compare prices from multiple stores. Find the cheapest deals",
+  metadataBase: new URL("https://www.peakcheap.com"),
 };
 
 export default function RootLayout({ children }) {

@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 
 
@@ -5,7 +6,8 @@ export default function Home() {
   return (
     <main>
     <SearchBar />
-      <h1>Welcome to priceHunt!</h1>
+    {/* <Footer /> */}
+      {/* <h1>Welcome to PeakCheap!</h1> */}
     </main>
   );
 }
