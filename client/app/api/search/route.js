@@ -1,11 +1,11 @@
 
 import { NextResponse } from "next/server";
+import { isContentSafe } from "./contentFilter";
 
 
 // Simple in-memory cache
 const cache = new Map();
-const CACHE_TIME = 21600000 // 6 hours for searches
-
+const CACHE_TIME = 21600000; // 6 hours for searches
 
 const getEbayToken = async () => {
 
@@ -59,7 +59,12 @@ export async function GET(request){
         const query = searchParams.get("query");
 
         if(!query) {
-          return NextResponse.json([], { status: 200 })
+            return NextResponse.json([], { status: 200 })
+        }
+
+        // Filter unsafe searches
+        if(!isContentSafe(query)) {
+            return NextResponse.json([], { status: 200 })
         }
 
         // Check search cache first
@@ -79,7 +84,7 @@ export async function GET(request){
         }
 
         const response = await fetch(
-            `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${encodeURIComponent(query)}&limit=20`,
+            `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${encodeURIComponent(query)}&limit=20&adult_only=false`,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -91,7 +96,8 @@ export async function GET(request){
         const data = await response.json();
         const items = data.itemSummaries || [];
 
-        const products = items.map(item => ({
+        // Filter bad content!
+        const products = items.filter(item => isContentSafe(item.title)).map(item => ({
             id: item.itemId,
             name: item.title,
             price: parseFloat(item.price.value),
@@ -109,7 +115,7 @@ export async function GET(request){
             time: Date.now()
         })
 
-        console.log(`Cached results for: ${query}`)
+        
 
         return NextResponse.json(sorted)
 

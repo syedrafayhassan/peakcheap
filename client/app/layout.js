@@ -32,15 +32,7 @@ export default function RootLayout({ children }) {
       {children}
       <Footer />
 
-    {/* {Skimlinks} */}
-    {/* <script type="text/javascript" src="https://s.skimresources.com/js/305317X1793513.skimlinks.js"></script> */}
 
-
-    {/* {Skimlinks} */}
-       <Script
-          src="https://s.skimresources.com/js/305317X1793513.skimlinks.js"
-          strategy="afterInteractive"
-        />
 
 
       </body>

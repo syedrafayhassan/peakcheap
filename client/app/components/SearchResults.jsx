@@ -37,7 +37,7 @@ useEffect(()=>{
           
             setProducts(Array.isArray(data) ? data : [])
 
-            console.log("First product platform:", data[0].platform)
+          
         }catch(err){
             setError("Something went wrong!");
         } finally{
