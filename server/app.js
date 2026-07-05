@@ -9,11 +9,21 @@ const PORT = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json())
 
+// Fix IPv6 issue!
+app.set("trust proxy", 1)
+
     // Rate Limiter Per User
     const limiter = rateLimit({
         windowMs: 60 * 1000, // 1 minute window
-        max: 5,             // only 5 searches per minute per user
-        keyGenerator: (req) => req.ip, // track by IP address
+        max: 10,            // only 10 searches per minute per user
+        // Fix IPv6 key generation!
+        keyGenerator: (req) => {
+            const ip = req.ip || req.connection.remoteAddress  // track by IP address
+            // Convert IPv6 to IPv4 if needed
+            return ip.includes('::ffff:')
+            ? ip.split('::ffff:')[1]
+            : ip
+        },  
         message: {
             error: "Too many searches! Please wait 1 minute."
         }

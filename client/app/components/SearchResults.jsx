@@ -6,11 +6,17 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation"; 
 import ProductCard from "../components/ProductCard";
 import SkeletonCard from "../components/SkeletonCard";
-
+import Link from "next/link";
 
 export default function SearchPage(){
     const SearchParams = useSearchParams();
     const query = SearchParams.get("query");
+    const highlightID = SearchParams.get("highlight");  // Get highlight ID!
+
+    console.log("Highlight ID from URL:", highlightID)
+// console.log("Products IDs:", products.map(p => p.id));
+
+
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -47,7 +53,25 @@ useEffect(()=>{
 
     if(query) fetchProducts()
 
-}, [query])
+}, [query]);
+
+// Fix Scroll to highlighted product!
+useEffect(() => {
+    if(highlightID && !loading && products.length > 0){
+        setTimeout(() => {
+            // Find product by partial ID match!
+          const element = document.getElementById(`product-${highlightID}`)
+          if(element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            })
+          }
+
+        }, 1000)
+    }
+}, [highlightID, loading, products])
+
 
     // Filter & Sort Products
 const filteredProducts = useMemo(() => {
@@ -155,12 +179,16 @@ return (
     {/* { Products Grid } */}
     {!loading && !error && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product)=>(
+            {filteredProducts.map((product, index)=>(
                <ProductCard
                  key={product.id} 
                  product={product} 
+                 isHighlighted={product.id === highlightID}
+                 index={index}
+                 searchQuery={query} // Pass original query!
                  />
     ))}
+    
         </div>
     )}
 
