@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import getAliExpressProducts from "./aliexpressService";
 
 
 // Simple in-memory cache
@@ -66,27 +67,36 @@ export async function GET(request) {
     }
 
     const token = await getEbayToken();
-    console.log("Token:", token ? "GOT IT ✅" : "MISSING ❌")
+    
 
     if (!token) {
       return NextResponse.json([], { status: 200 });
     }
 
-    const response = await fetch(
-      `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${encodeURIComponent(query)}&limit=20`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      },
-    );
+    // Fetch from both APIs simultaneously!
+    const [ebayResponse, AliExpressProducts] = await Promise.all([
+      // eBay fetch
+      fetch(
+        `https://api.ebay.com/buy/browse/v1/item_summary/search?q=${encodeURIComponent(query)}&limit=20`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      ),
 
-    const data = await response.json();
-    const items = data.itemSummaries || [];
+      // AliExpress fetch
+      getAliExpressProducts(query)
+    
+    ]);
+
+    const ebayData = await ebayResponse.json();
+    const ebayItems = ebayData.itemSummaries || [];
+
 
   
-    const products = items.map((item) => ({
+    const ebayProducts = ebayItems.map((item) => ({
       // clean ID - remove "v1|" prefix!
       id: item.itemId
       ? item.itemId.replace('|', '_') : `product_${index}`,
@@ -98,10 +108,13 @@ export async function GET(request) {
         platform: "eBay",
       }));
 
+      // Combine both platforms!
+      const allProducts =[...ebayProducts, ...AliExpressProducts]
 
+      // Sort by cheapest first!
+      const sorted = allProducts.sort((a, b) => a.price - b.price);
+     
 
-
-    const sorted = products.sort((a, b) => a.price - b.price);
 
     // Save to search cache!
     cache.set(cacheKey, {
