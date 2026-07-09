@@ -1,5 +1,4 @@
 import crypto from 'crypto';
-import { format } from 'path';
 
 
 const createSign = (params, secret) => {
@@ -23,6 +22,60 @@ const createSign = (params, secret) => {
     .toUpperCase()
 }
 
+    // Words that lower score (accessories)
+    const NEGATIVE_WORDS = {
+        'case': -20,
+        'cover': -20,
+        'screen protector': -20,
+        'tempered glass': -20,
+        'charger': -15,
+        'cable': -15,
+        'adapter': -15,
+        'holder': -15,
+        'stand': -15,
+        'mount': -15,
+        'sleeve': -15,
+        'pouch': -15,
+        'strap': -15,
+        'band': -15,
+        'bumper': -15,
+        'skin': -15,
+        'shell': -15,
+        'sticker': -10,
+        'lace': -20,
+        'paint': -20,
+        'repair': -10,
+        'tool': -10,
+    }
+
+    const getRelevanceScore = (productTitle, query) =>{
+        if(!productTitle || !query) return 0;
+
+        const title = productTitle.toLowerCase();
+        const searchWords = query.toLowerCase().split(" ");
+    
+        let score = 0;
+    
+        // Add points for each matching search word
+        searchWords.forEach(word => {
+            if(word.length > 2 && title.includes(word)){
+                score += 10;
+            }
+        })
+
+        // Subtract points for accessory words
+        Object.entries(NEGATIVE_WORDS).forEach(([word, penalty]) => {
+            if(title.includes(word)) {
+                score += penalty   // penalty is negative!
+            }
+        })
+        
+        return score;
+
+    }
+
+
+
 const getAliExpressProducts = async (query) => {
     try {
         const appKey = process.env.ALIEXPRESS_APP_KEY;
@@ -41,10 +94,10 @@ const getAliExpressProducts = async (query) => {
             method: "aliexpress.affiliate.product.query",
             keywords: query,
             page_no: 1,
-            page_size: 20,
+            page_size: 40,
             currency: "USD",
             language: "en",
-            sort: "SALE_PRICE_ASC",
+            sort: "LAST_VOLUME_DESC",
             timestamp: timestamp,
             sign_method: "md5",
             v: "2.0",
@@ -66,15 +119,28 @@ const getAliExpressProducts = async (query) => {
 
         const items = data?.aliexpress_affiliate_product_query_response?.resp_result?.result?.products?.product || []
 
-        return items.map(item => ({
+        return items
+        .map(item => ({
             id: `ali_${item.product_id}`,
             name: item.product_title,
             price: parseFloat(item.target_sale_price || item.sale_price),
             currency: item.target_sale_price_currency || "USD",
             image: item.product_main_image_url,
             url: item.promotion_link || item.product_detail_url,
-            platform: "AliExpress"
+            platform: "AliExpress",
+            // Add relevance score!
+            score: getRelevanceScore(item.product_title, query)
         }))
+
+        // Sort by score (Highest first!)
+        .sort((a,b) => b.score - a.score)
+        
+       // Take top 20!
+        .slice(0, 20)
+        
+        // Remove score from final output!
+        .map(({ score, ...item }) => item)
+
 
     } catch (error){
         console.log("AliExpress error:", error.message)
