@@ -141,7 +141,7 @@ return (
             <p className="text-gray-500 text-sm font-medium">
                 Store:
             </p>
-            {["all", "eBay", "Amazon", "Walmart"].map((platform) =>(
+            {["all", "eBay", "AliExpress", "Amazon", "Walmart"].map((platform) =>(
                  <button
                 key={platform}
                 onClick={()=> setPlatformFilter(platform)}
