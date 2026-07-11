@@ -1,21 +1,28 @@
  
  import { NextResponse } from "next/server";
 
-//  In-memory store for share tokens
-const shareStore = new Map();
 
 // Generate random short token
-const generateToken = () => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let token = "";
-    for(let i = 0; i < 6; i++) {
-        token += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
+// Encode data in the token itself!
+
+const generateToken = (query, productId) => {
+    const data = { query, productId }
+    const encoded = Buffer.from(
+        JSON.stringify(data)
+    ).toString("base64url")
+    return encoded;
     
-    console.log(token);
-    return token;
 
 }
+
+// Decoded token in to data
+const decodeToken = (token) => {
+    const decoded = Buffer.from(
+        token, 'base64url'
+    ).toString('utf8')
+    return JSON.parse(decoded);
+}
+
 
 
 // Post - Create share link
@@ -31,22 +38,12 @@ export async function POST(request) {
             )
         }
 
-        // Generate unique token
-        let token = generateToken();
-        while(shareStore.has(token)) {
-            token = generateToken()
-        }
+        // Generate token with data inside!
+        let token = generateToken(query, productId)
+        console.log(`Share token created: ${ token }`)
 
-        // Save to store
-        shareStore.set(token, {
-            query,
-            productId,
-            createdAt: Date.now()
-        })
+        return NextResponse.json({ token });
 
-        console.log(`Share token created: ${token}`)
-
-        return NextResponse.json({ token })
 
     } catch (error) {
         console.log("Share error:", error.message)
@@ -71,15 +68,9 @@ export async function GET(request) {
             )
         }
 
+        // Decode data from token!
         const shareData = shareStore.get(token);
-
-        if(!shareData) {
-            return NextResponse.json(
-                { error: "Share link not found or expired" },
-                { status: 404 }
-            )
-        }
-
+        
         return NextResponse.json(shareData);
 
     } catch(error) {
