@@ -5,15 +5,41 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
     
     const [copied, setCopied] = useState(false);
     
-    const handleShare = () => {
-        // Use original search query not product title!
-        const shareUrl = `https://www.peakcheap.com/search?query=${encodeURIComponent(searchQuery)}&highlight=${product.id}`;
-        console.log("Share URL:", shareUrl); // Check URL!
-        navigator.clipboard.writeText(shareUrl);
+    const handleShare = async () => {  
+      try{
+        // Create short share link!
+        const response = await fetch('/api/share', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            query: searchQuery,
+            productId: product.id
+          })
+        });
 
-        setCopied(true);
+        const data = await response.json();
 
-        setTimeout(()=> setCopied(false), 2000);
+        if(data.token) {
+          const shareUrl = `https://www.peakcheap.com/share/${data.token}`;
+
+          if(navigator.clipboard) {
+            await navigator.clipboard.writeText(shareUrl);
+          } else {
+            const textArea = document.createElement('textarea');
+            textArea.value = shareUrl
+            document.body.appendChild(textArea)
+            textArea.select()
+            document.execCommand('copy')
+          }
+
+          setCopied(true)
+          setTimeout(() => setCopied(false), 2000)
+      
+        }
+
+        } catch(error) {
+          console.log("Share error:", error)
+        }
     }
 
     return(
