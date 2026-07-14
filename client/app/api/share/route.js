@@ -2,25 +2,24 @@
  import { NextResponse } from "next/server";
 
 
-// Generate random short token
 // Encode data in the token itself!
-
 const generateToken = (query, productId) => {
-    const data = { query, productId }
-    const encoded = Buffer.from(
-        JSON.stringify(data)
-    ).toString("base64url")
-    return encoded;
-    
+    const data = JSON.stringify({ query, productId })
+    return Buffer.from(data)
+         .toString("base64")
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
 
 }
 
 // Decoded token in to data
 const decodeToken = (token) => {
-    const decoded = Buffer.from(
-        token, 'base64url'
-    ).toString('utf8')
-    return JSON.parse(decoded);
+    const base64 = token
+    .replace(/-/g, '+')
+    .replace(/_/g, '/');
+    const decoded = Buffer.from(base64, 'base64').toString('utf8')
+    return JSON.parse(decoded)
 }
 
 
@@ -69,14 +68,16 @@ export async function GET(request) {
         }
 
         // Decode data from token!
-        const shareData = shareStore.get(token);
+        const shareData = decodeToken(token);
+        console.log("Share data:", shareData)
         
         return NextResponse.json(shareData);
 
     } catch(error) {
+        console.log("Decode error:", error.message)
         return NextResponse.json(
-            { error: error.message },
-            { status: 500 }
+            { error: 'Invalid share link' },
+            { status: 404 }
         )
     }
 }

@@ -20,7 +20,9 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
         const data = await response.json();
 
         if(data.token) {
-          const shareUrl = `https://www.peakcheap.com/share/${data.token}`;
+           // Use current domain automatically!
+      const baseUrl = window.location.origin
+          const shareUrl = `${baseUrl}/share/${data.token}`;
 
           if(navigator.clipboard) {
             await navigator.clipboard.writeText(shareUrl);
