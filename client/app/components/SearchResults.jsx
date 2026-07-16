@@ -99,7 +99,7 @@ const filteredProducts = useMemo(() => {
 
 
 return (
-    <div className="max-w-6xl mx-auto px-4 pt-28 pb-10 !m-12">
+    <div className="max-w-6xl mx-auto px-4 pt-28 pb-10 m-12!">
 
        { /* { Search Header } */}
         <div className="mb-8">
