@@ -63,8 +63,11 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
             {product.image ? (
                 <img
                 src={product.image}
-                alt={product.name}
-              className="h-full w-full object-contain"/>
+                alt={`${product.name} - Best Price on PeakCheap`}
+                title={product.name}
+                className="h-full w-full object-contain"
+                loading="lazy"
+              />
 
             ): (
                 <div className="text-gray-300 text-6xl">

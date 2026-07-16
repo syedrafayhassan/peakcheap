@@ -7,12 +7,50 @@ import Link from "next/link";
 export default function Footer(){
     return(
         <footer className="bg-gray-50 border-t border-gray-200 mt-auto">
+              {/* Quick Links */}
+<div className="flex items-center">
+  <h4 className=" flex pl-2! items-center w-[22%] font-bold text-gray-800 mb-3">
+    Quick Links
+  </h4>
+  <ul className="space-y-2 flex justify-center gap-4 p-3!">
+    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+      <Link href="/" className="text-gray-500 hover:text-blue-600 text-sm transition">
+        Home
+      </Link>
+    </li>
+    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+      <Link href="/about" className="text-gray-500 hover:text-blue-600 text-sm transition">
+        About Us
+      </Link>
+    </li>
+    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+      <Link href="/search?query=iphone" className="text-gray-500 hover:text-blue-600 text-sm transition">
+        iPhone Deals
+      </Link>
+    </li>
+    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+      <Link href="/search?query=samsung" className="text-gray-500 hover:text-blue-600 text-sm transition">
+        Samsung Deals
+      </Link>
+    </li>
+    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+      <Link href="/search?query=laptop" className="text-gray-500 hover:text-blue-600 text-sm transition">
+        Laptop Deals
+      </Link>
+    </li>
+    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+      <Link href="/search?query=nike" className="text-gray-500 hover:text-blue-600 text-sm transition">
+        Nike Deals
+      </Link>
+    </li>
+  </ul>
+</div>
         {/* { Copyright } */}
             <div className="max-w-6xl mx-auto px-4 py-10 flex justify-between items-center">
                 
           
        
-           <p className="text-gray-400 !ml-2">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
+           <p className="text-gray-400 ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
        
         <div className=" text-gray-400 text-xs text-center">
           
@@ -204,7 +242,9 @@ export default function Footer(){
             </ul>
 
         </div>
+
              </div>
+  
 
 
            

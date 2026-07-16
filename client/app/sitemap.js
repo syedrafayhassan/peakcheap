@@ -6,7 +6,7 @@ export default function sitemap (){
             url: "https://www.peakcheap.com",
             lastModified: new Date(),
             changeFrequency: "daily",
-            priority: 1,
+            priority: 1.0,
         },
         {
             url: "https://www.peakcheap.com/about",
@@ -14,11 +14,5 @@ export default function sitemap (){
             changeFrequency: "monthly",
             priority: 0.8,
         },
-        {
-            url: "https://www.peakcheap.com/search",
-            lastModified: new Date(),
-            changeFrequency: "daily",
-            priority: 0.9,
-        }
     ]
 }
