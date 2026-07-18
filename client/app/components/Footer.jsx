@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export default function Footer(){
     return(
-        <footer className="bg-gray-50 border-t border-gray-200 mt-auto">
+        <footer className="bg-gray-50 border-t border-gray-200 ">
               {/* Quick Links */}
 <div className="flex items-center">
-  <h4 className=" flex pl-2! items-center w-[22%] font-bold text-gray-800 mb-3">
+  <h4 className=" flex pl-2! items-center w-[22%] font-bold text-gray-800">
     Quick Links
   </h4>
   <ul className="space-y-2 flex justify-center gap-4 p-3!">
@@ -23,6 +23,11 @@ export default function Footer(){
         About Us
       </Link>
     </li>
+     <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+    <Link href="/privacy" className="text-gray-500 hover:text-blue-600 text-sm transition">
+      Privacy Policy
+    </Link>
+  </li>
     <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
       <Link href="/search?query=iphone" className="text-gray-500 hover:text-blue-600 text-sm transition">
         iPhone Deals
@@ -46,7 +51,7 @@ export default function Footer(){
   </ul>
 </div>
         {/* { Copyright } */}
-            <div className="max-w-6xl mx-auto px-4 py-10 flex justify-between items-center">
+            <div className="max-w-6xl flex justify-between items-center">
                 
           
        
@@ -54,7 +59,7 @@ export default function Footer(){
        
         <div className=" text-gray-400 text-xs text-center">
           
-             <ul className="space-y-2 flex items-center gap-3.5">
+             <ul className="flex items-center gap-3.5">
                 <li>
                     <a href="https://instagram.com/peakcheap" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 text-sm transition">
                            <svg 

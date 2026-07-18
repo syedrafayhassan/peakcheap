@@ -52,14 +52,14 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
 
             {/* { Highlight Badge } */}
             {isHighlighted && (
-                <div className="bg-blue-600 text-white text-xs font-bold px-3 py-2 text-center">
+                <div className="bg-blue-600 text-white text-xs font-bold text-center">
                 🔥 Featured Deal!
                 </div>
             )}
 
 
             {/* { Product Image } */}
-        <div className="relative h-52 bg-gray-50 flex items-center justify-center p-4">
+        <div className="relative h-52 bg-gray-50 flex items-center justify-center">
             {product.image ? (
                 <img
                 src={product.image}
@@ -77,27 +77,27 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
                 )}
 
                 {/* { Platform Badge } */}
-                <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full" >
+                <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold rounded-full" >
                     {product.platform}
                 </div>
         </div>
 
         {/* { Product Info } */}
-        <div className="p-4 flex flex-col flex-1" >
+        <div className="flex flex-col flex-1" >
 
         {/* { Name } */}
             <a href={product.url}
         target="_blank"
         rel="noopener noreferrer">
 
-        <h3 className="text-gray-800 font-semibold text-sm mb-3 line-clamp-2 flex-1">
+        <h3 className="text-gray-800 font-semibold text-sm line-clamp-2 flex-1">
             {product.name}
         </h3>
 
 </a>
 
         {/* { Price } */}
-        <div className="flex items-center justify-between m-4">
+        <div className="flex items-center justify-between">
             <span className="text-2xl font-extrabold text-blue-600">
                 ${product.price}
             </span>
@@ -111,14 +111,14 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
         href={product.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-blue-600 text-white text-center py-3 rounded-xl font-semibold text-sm hover:bg-blue-700 transition-all duration-200">
+        className="bg-blue-600 text-white text-center rounded-xl font-semibold text-sm hover:bg-blue-700 transition-all duration-200">
 Buy Now →
 
 </a>
         {/* Share Button */}
         
       <button onClick={ handleShare }
-      className={`px-3 py-3 rounded-xl text-sm font-semibold transition-all duration-200
+      className={`rounded-xl text-sm font-semibold transition-all duration-200
       ${ copied ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
       >
         { copied ? ('✅') : (
@@ -159,7 +159,7 @@ Buy Now →
 
         {/* { Copied Message } */}
         { copied && (
-            <p className="text-green-500 text-xs text-center mt-2">
+            <p className="text-green-500 text-xs text-center">
               Link copied! Share on social media! 🎉
             </p>
         )}

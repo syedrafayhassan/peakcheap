@@ -37,7 +37,7 @@ export default function SharePage() {
     return (
         <div className="min-h-screen flex items-center justify-center">
             <div className="text-center">
-                <div className="text-6xl mb-4">🔍</div>
+                <div className="text-6xl">🔍</div>
                 <p className="text-xl text-blue-600 font-semibold animate-pulse">
                     Loading deal...
                 </p>

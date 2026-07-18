@@ -6,7 +6,6 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation"; 
 import ProductCard from "../components/ProductCard";
 import SkeletonCard from "../components/SkeletonCard";
-import Link from "next/link";
 
 export default function SearchPage(){
     const SearchParams = useSearchParams();
@@ -99,21 +98,21 @@ const filteredProducts = useMemo(() => {
 
 
 return (
-    <div className="max-w-6xl mx-auto px-4 pt-28 pb-10 m-12!">
+    <div className="max-w-6xl m-12!">
 
        { /* { Search Header } */}
-        <div className="mb-8">
+        <div>
             <h2 className="text-3xl font-bold text-gray-800">
                 Result for 
                 <span className="text-blue-600">"{query}"</span>
             </h2>
-            <p className="text-gray-500 mt-2">
+            <p className="text-gray-500">
                 {filteredProducts.length} products found
             </p>
         </div>
 
         {/* { Filters Bar } */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 mb-8 flex flex-wrap gap-4 items-center">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-wrap gap-4 items-center">
         
         {/* { sort Filter } */}
         <div className="flex items-center gap-2">
@@ -122,12 +121,12 @@ return (
             </p>
             <button
             onClick={()=> setSortBy("low_to_high")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${sortBy === "low_to_high" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
+            className={`rounded-lg text-sm font-medium transition-all ${sortBy === "low_to_high" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
                 Price: Low to High ↑
             </button>
             <button
             onClick={()=> setSortBy("high_to_low")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${sortBy === "high_to_low" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
+            className={`rounded-lg text-sm font-medium transition-all ${sortBy === "high_to_low" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
                 Price: High to Low ↓
             </button>
 
@@ -145,7 +144,7 @@ return (
                  <button
                 key={platform}
                 onClick={()=> setPlatformFilter(platform)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${platformFilter === platform ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200" }`}>
+                className={`rounded-lg text-sm font-medium transition-all ${platformFilter === platform ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200" }`}>
                     {platform === "all" ? "All Stores" : platform}
                 </button>
             ))}
@@ -164,14 +163,14 @@ return (
 
     {/* { Error } */}
     {error && (
-        <div className="text-red-500 text-center text-xl mt-10">
+        <div className="text-red-500 text-center text-xl">
             {error}
         </div>
     )}
 
     {/* { No Results } */}
     {!loading && !error && filteredProducts.length === 0 && (
-        <div className="text-center text-gray-500 text-xl mt-10">
+        <div className="text-center min-h-dvh text-gray-500 text-xl">
             😊 This store is coming soon! Try "All Stores" for now.
         </div>
     )}
