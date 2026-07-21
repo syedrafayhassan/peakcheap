@@ -1,7 +1,15 @@
 
+export const metadata = {
+    title: "About PeakCheap - Price Comparison Website",
+    description: "Learn about PeakCheap price comparison website.",
+    alternates: {
+        canonical: "https://www.peakcheap.com/about",
+    },
+}
+
 export default function About(){
     return(
-        <div className="max-w-4xl !my-11 !mx-auto px-4 pt-32 pb-20">
+        <div className="max-w-4xl my-11! mx-auto! px-4 pt-32 pb-20">
 
         {/* { Header } */}
 
@@ -16,7 +24,7 @@ export default function About(){
 
 
         {/* { Mission } */}
-        <div className="bg-white !my-6 !p-9 rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+        <div className="bg-white my-6! p-9 rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
                 Our Mission
             </h2>
@@ -28,7 +36,7 @@ export default function About(){
 
         {/* { Disclaimer } */}
 
-        <div className="bg-yellow-50 border !p-9 border-yellow-200 rounded-2xl p-6 text-center mb-8">
+        <div className="bg-yellow-50 border p-9 border-yellow-200 rounded-2xl p-6 text-center mb-8">
             <h3 className="text-yellow-800 font-bold mb-2">
                 ⚠️ Affiliate Disclosure
             </h3>

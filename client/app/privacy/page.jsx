@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 export const metadata = {
-  title: "Privacy Policy | PeakCheap",
-  description:
-    "Learn how PeakCheap collects, uses, stores, and protects your information when using our price comparison platform.",
+  title: "Privacy Policy - PeakCheap",
+  description: "Privacy Policy for PeakCheap.",
+  alternates: {
+    canonical: "https://www.peakcheap.com/privacy",
+  },
 };
 
 export default function PrivacyPolicy() {
@@ -535,14 +539,13 @@ export default function PrivacyPolicy() {
 
           <p className="text-gray-700 mt-2">
             Website:{" "}
-            <a
-              href="https://www.peakcheap.com"
-              target="_blank"
+            <Link
+              href="/"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-700 hover:underline"
             >
               www.peakcheap.com
-            </a>
+            </Link>
           </p>
         </div>
       </section>
