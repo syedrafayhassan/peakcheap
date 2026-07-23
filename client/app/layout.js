@@ -15,11 +15,18 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "PeakCheap - Find Cheapest Products Online",
-  description: "Compare prices from multiple stores. Find the cheapest deals",
+  description: "Compare prices from eBay and AliExpress instantly! Find cheapest deals and save money.",
   metadataBase: new URL("https://www.peakcheap.com"),
   alternates: {
     canonical: 'https://www.peakcheap.com'
   },
+  verification: {
+    google: "TVwr8Dq2_aMgt_w_2CZfotMjiOOYrOz6Pp4n5wIGXGo",
+    other: {
+      'p:domain_verify': 'd589e6b8827553081322f085a09cf75d'
+    }
+  },
+
   openGraph: {
     title: "PeakCheap - Find Cheapest Products Online",
     description: "Compare prices instantly and find cheapest deals!",

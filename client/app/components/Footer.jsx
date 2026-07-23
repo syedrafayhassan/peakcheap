@@ -12,7 +12,7 @@ export default function Footer(){
   <h4 className=" flex pl-2! items-center w-[22%] font-bold text-gray-800">
     Quick Links
   </h4>
-  <ul className="space-y-2 flex justify-center gap-4 p-3!">
+  <ul className="space-y-2 flex justify-center flex-wrap gap-4 p-3!">
     <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
       <Link href="/" className="text-gray-500 hover:text-blue-600 text-sm transition">
         Home
