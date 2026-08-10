@@ -9,6 +9,7 @@ export default function robots() {
                 allow: '/',
                 disallow: [
                     '/api/',
+                    '/share/',
                     '/learn-forex-and-get-paid-from-mt5-forum',
                 ],
             },
