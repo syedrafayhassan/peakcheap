@@ -7,11 +7,24 @@ const nextConfig = {
         source: "/:path*",
         has: [
           {
-            type: "host",
-            value: "peakcheap.com",
+            type: "header",
+            key: "x-forwarded-proto",
+            value: "http",
           },
         ],
         destination: "https://www.peakcheap.com/:path*",
+        permanent: true,
+      },
+      // Redirect non-www to www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'peakcheap.com',
+          },
+        ],
+        destination: 'https://www.peakcheap.com/:path*',
         permanent: true,
       },
     ]
