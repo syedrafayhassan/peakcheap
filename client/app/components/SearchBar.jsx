@@ -47,7 +47,7 @@ export default function SearchBar() {
           className="flex-1 p-4! text-lg outline-none text-gray-700 placeholder-gray-400"/>
         <button
           onClick={handleSearch}
-          className="bg-blue-600 text-white text-lg font-semibold hover:bg-blue-700 transition-all duration-200">
+          className="bg-blue-600 text-white p-3 text-lg font-semibold hover:bg-blue-700 transition-all duration-200">
           Search 🔍
         </button>
       </div>

@@ -101,7 +101,7 @@ return (
     <div className="max-w-6xl m-12!">
 
        { /* { Search Header } */}
-        <div>
+        <div className="py-14">
             <h2 className="text-3xl font-bold text-gray-800">
                 Result for 
                 <span className="text-blue-600">"{query}"</span>
@@ -112,7 +112,7 @@ return (
         </div>
 
         {/* { Filters Bar } */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-wrap gap-4 items-center">
+        <div className="shadow-[0px_2px_5px_-1px_rgba(50,50,93,0.25),0px_1px_3px_-1px_rgba(0,0,0,0.3)] bg-white px-4 py-3.5 rounded-2xl   flex flex-wrap gap-4 items-center my-2">
         
         {/* { sort Filter } */}
         <div className="flex items-center gap-2">
@@ -121,12 +121,12 @@ return (
             </p>
             <button
             onClick={()=> setSortBy("low_to_high")}
-            className={`rounded-lg text-sm font-medium transition-all ${sortBy === "low_to_high" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
+            className={`shadow-[0px_0px_0px_2px_rgba(6,24,44,0.4),0px_4px_6px_-1px_rgba(6,24,44,0.65),inset_0px_1px_0px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${sortBy === "low_to_high" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
                 Price: Low to High ↑
             </button>
             <button
             onClick={()=> setSortBy("high_to_low")}
-            className={`rounded-lg text-sm font-medium transition-all ${sortBy === "high_to_low" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
+            className={`shadow-[0px_0px_0px_2px_rgba(6,24,44,0.4),0px_4px_6px_-1px_rgba(6,24,44,0.65),inset_0px_1px_0px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${sortBy === "high_to_low" ? "bg-blue-600 text-white": "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
                 Price: High to Low ↓
             </button>
 
@@ -144,7 +144,7 @@ return (
                  <button
                 key={platform}
                 onClick={()=> setPlatformFilter(platform)}
-                className={`rounded-lg text-sm font-medium transition-all ${platformFilter === platform ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200" }`}>
+                className={`shadow-[inset_3px_3px_6px_0px_rgb(204,219,232),inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5)] px-3 py-2 rounded-lg text-sm font-medium transition-all ${platformFilter === platform ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200" }`}>
                     {platform === "all" ? "All Stores" : platform}
                 </button>
             ))}
