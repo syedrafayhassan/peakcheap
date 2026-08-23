@@ -112,10 +112,10 @@ return (
         </div>
 
         {/* { Filters Bar } */}
-        <div className="shadow-[0px_2px_5px_-1px_rgba(50,50,93,0.25),0px_1px_3px_-1px_rgba(0,0,0,0.3)] bg-white px-4 py-3.5 rounded-2xl   flex flex-wrap gap-4 items-center my-2">
+        <div className="shadow-[0px_2px_5px_-1px_rgba(50,50,93,0.25),0px_1px_3px_-1px_rgba(0,0,0,0.3)] bg-white px-4 py-3.5 rounded-2xl max-sm:justify-center flex flex-wrap gap-4 items-center my-2">
         
         {/* { sort Filter } */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-sm:flex-col max-sm:items-center max-sm:gap-3.5 max-sm:my-6 ">
             <p className="text-gray-500 text-sm font-medium">
                 Sort By:
             </p>
@@ -136,7 +136,7 @@ return (
         <div className="h-6 w-px bg-gray-200"></div>
 
         {/* { Platform Filter } */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-sm:flex-wrap max-sm:justify-center max-sm:gap-4 max-sm:mb-6 ">
             <p className="text-gray-500 text-sm font-medium">
                 Store:
             </p>

@@ -22,7 +22,7 @@ export default function SearchBar() {
 
       {/* Heading */}
       <h1
-        className="text-5xl font-extrabold text-gray-900 text-center leading-tight">
+        className="max-sm:text-3xl text-5xl font-extrabold text-gray-900 text-center leading-tight">
         Find The
         <span className="text-blue-600"> Cheapest </span>
         Price Online
@@ -30,7 +30,7 @@ export default function SearchBar() {
 
       {/* Subheading */}
       <p
-        className="text-gray-500 text-xl text-center max-w-xl">
+        className="max-sm:text-sm text-gray-500 text-xl text-center max-w-xl">
         Search any product and we'll compare prices from top stores to find you
         the best deal!
       </p>

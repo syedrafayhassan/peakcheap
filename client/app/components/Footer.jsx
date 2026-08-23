@@ -8,8 +8,8 @@ export default function Footer(){
     return(
         <footer className="bg-gray-50 border-t border-gray-200 ">
               {/* Quick Links */}
-<div className="flex items-center">
-  <h4 className=" flex pl-2! items-center w-[22%] font-bold text-gray-800">
+<div className="flex items-center max-sm:flex-col max-sm:pt-3.5">
+  <h4 className=" flex pl-2! items-center w-[22%] max-sm:py-3.5 max-sm:w-full font-bold text-gray-800">
     Quick Links
   </h4>
   <ul className="space-y-2 flex justify-center flex-wrap gap-4 p-3!">
@@ -51,7 +51,7 @@ export default function Footer(){
   </ul>
 </div>
         {/* { Copyright } */}
-            <div className="max-w-6xl flex justify-between items-center">
+            <div className="max-w-6xl flex justify-between max-sm:gap-3.5 max-sm:flex-col-reverse max-sm:py-3.5 items-center">
                 
           
        
@@ -59,7 +59,7 @@ export default function Footer(){
        
         <div className=" text-gray-400 text-xs text-center">
           
-             <ul className="flex items-center gap-3.5">
+             <ul className="flex items-center gap-3.5 max-sm:gap-6 max-sm:tracking[2px] max-sm:text-center">
                 <li>
                     <a href="https://instagram.com/peakcheap" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 text-sm transition">
                            <svg 
