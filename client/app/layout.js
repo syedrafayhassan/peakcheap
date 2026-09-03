@@ -19,13 +19,13 @@ export const metadata = {
   description: "Compare prices from eBay and AliExpress instantly! Find cheapest deals and save money.",
   metadataBase: new URL("https://www.peakcheap.com"),
   alternates: {
-    canonical: 'https://www.peakcheap.com'
+    canonical: "https://www.peakcheap.com"
   },
   verification: {
     google: "TVwr8Dq2_aMgt_w_2CZfotMjiOOYrOz6Pp4n5wIGXGo",
     other: {
       'p:domain_verify': 'd589e6b8827553081322f085a09cf75d',
-      'admitad-site-verification': '<meta name="mitgo-verification" content="d395090c-51be-4b15-95eb-1776ad67835c" />' 
+      'mitgo-verification': 'd395090c-51be-4b15-95eb-1776ad67835c'
     }
   },
 
