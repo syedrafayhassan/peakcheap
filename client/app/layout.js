@@ -24,7 +24,8 @@ export const metadata = {
   verification: {
     google: "TVwr8Dq2_aMgt_w_2CZfotMjiOOYrOz6Pp4n5wIGXGo",
     other: {
-      'p:domain_verify': 'd589e6b8827553081322f085a09cf75d'
+      'p:domain_verify': 'd589e6b8827553081322f085a09cf75d',
+      'admitad-site-verification': '<meta name="mitgo-verification" content="d395090c-51be-4b15-95eb-1776ad67835c" />' 
     }
   },
 
