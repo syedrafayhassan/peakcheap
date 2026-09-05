@@ -128,8 +128,8 @@ const getAliExpressProducts = async (query) => {
             price: parseFloat(item.target_sale_price || item.sale_price),
             currency: item.target_sale_price_currency || "USD",
             image: item.product_main_image_url,
+            platform: "AliExpress",
             // url: item.promotion_link || item.product_detail_url,
-            // platform: "AliExpress",
             url: `${ADMITAD_BASE}?ulp=${encodeURIComponent(item.product_detail_url )} || ''`,
             platfrom: 'AliExpress',
             // Add relevance score!
