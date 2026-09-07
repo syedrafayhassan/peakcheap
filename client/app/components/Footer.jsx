@@ -1,53 +1,48 @@
 import Link from "next/link";
 
 
-// I Created this footer but not added it on github
 
 
 export default function Footer(){
     return(
         <footer className="bg-gray-50 border-t border-gray-200 ">
               {/* Quick Links */}
-<div className="flex items-center max-sm:flex-col max-sm:pt-3.5">
+<div className="flex items-center max-sm:flex-col max-sm:pt-3.5 py-4">
   <h4 className=" flex pl-2! items-center w-[22%] max-sm:py-3.5 max-sm:w-full font-bold text-gray-800">
-    Quick Links
+    Categories
   </h4>
-  <ul className="space-y-2 flex justify-center flex-wrap gap-4 p-3!">
-    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
-      <Link href="/" className="text-gray-500 hover:text-blue-600 text-sm transition">
-        Home
-      </Link>
-    </li>
-    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+  <ul className="space-y-2 flex gap-3 flex-wrap">
+  <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
       <Link href="/about" className="text-gray-500 hover:text-blue-600 text-sm transition">
         About Us
       </Link>
     </li>
-     <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
+     <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
     <Link href="/privacy" className="text-gray-500 hover:text-blue-600 text-sm transition">
       Privacy Policy
     </Link>
   </li>
-    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
-      <Link href="/search?query=iphone" className="text-gray-500 hover:text-blue-600 text-sm transition">
-        iPhone Deals
-      </Link>
+  {[
+    { name: 'Phone Deals', slug: 'phones' },
+    { name: 'Laptop Deals', slug: 'laptops' },
+    { name: 'Watch Deals', slug: 'watches' },
+    { name: 'Fashion Deals', slug: 'fashion' },
+    { name: 'Sports Deals', slug: 'sports' },
+    { name: 'Cameras Deals', slug: 'cameras' },
+  ].map((cat) => (
+    <li key={cat.slug}>
+    <a
+    href={`/category/${cat.slug}`}
+    className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full"
+    >
+      {cat.name}
+    </a>
     </li>
-    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
-      <Link href="/search?query=samsung" className="text-gray-500 hover:text-blue-600 text-sm transition">
-        Samsung Deals
-      </Link>
-    </li>
-    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
-      <Link href="/search?query=laptop" className="text-gray-500 hover:text-blue-600 text-sm transition">
-        Laptop Deals
-      </Link>
-    </li>
-    <li className="border border-gray-200 rounded-full text-sm p-2! hover:border-blue-400 hover:text-blue-600 transition-all">
-      <Link href="/search?query=nike" className="text-gray-500 hover:text-blue-600 text-sm transition">
-        Nike Deals
-      </Link>
-    </li>
+  ))
+  }
+
+
+
   </ul>
 </div>
         {/* { Copyright } */}

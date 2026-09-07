@@ -1,6 +1,10 @@
 
 
 export default function sitemap (){
+    const categories = [
+        'phones', 'laptops', 'watches', 'fashion', 'sports', 'cameras'
+    ]
+
     return [
         {
             url: 'https://www.peakcheap.com',
@@ -20,5 +24,12 @@ export default function sitemap (){
             changeFrequency: 'yearly',
             priority: 0.5,
         },
+        // Category pages
+        ...categories.map(cat => ({
+            url: `https://www.peakcheap.com/category/${cat}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        }))
     ]
 }
