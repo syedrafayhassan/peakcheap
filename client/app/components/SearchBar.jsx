@@ -16,23 +16,21 @@ export default function SearchBar() {
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 flex flex-col items-center justify-center">
       {/* Badge */}
       <div
-        className="bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
-        🔥 Compare prices from 3+ stores instantly
+        className=" text-black shadow-[0px_0px_0px_2px_rgba(6,24,44,0.4),0px_4px_6px_-1px_rgba(6,24,44,0.65),inset_0px_1px_0px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-2xl text-sm font-medium transition-all hover:bg-gray-200 border-0 cursor-pointer">
+        Compare prices from 3+ stores instantly
       </div>
 
       {/* Heading */}
       <h1
-        className="max-sm:text-3xl text-5xl font-extrabold text-gray-900 text-center leading-tight">
-        Find The
-        <span className="text-blue-600"> Cheapest </span>
-        Price Online
+        className="max-sm:text-3xl text-5xl font-extrabold text-gray-900 text-center mb-4 dark:text-white leading-tight">
+        <span className="text-blue-600"> Find Cheapest Deals  </span> & <br />
+        Compare Prices 
       </h1>
 
       {/* Subheading */}
       <p
-        className="max-sm:text-sm text-gray-500 text-xl text-center max-w-xl">
-        Search any product and we'll compare prices from top stores to find you
-        the best deal!
+        className="max-sm:text-sm text-gray-500 text-xl mb-4 text-center max-w-2xl">
+        PeakCheap compares prices from multiple online stores so you can find the best deal without checking every store yourself.
       </p>
 
       {/* Search Box */}
@@ -48,7 +46,7 @@ export default function SearchBar() {
         <button
           onClick={handleSearch}
           className="bg-blue-600 text-white p-3 text-lg font-semibold hover:bg-blue-700 transition-all duration-200">
-          Search 🔍
+          Search 🧙
         </button>
       </div>
 
@@ -67,7 +65,7 @@ export default function SearchBar() {
                 setQuery(item);
                 router.push(`/search?query=${item}`);
               }}
-              className="bg-white border border-gray-200 text-gray-600 p-2! rounded-full text-sm hover:border-blue-400 hover:text-blue-600 transition-all"
+              className="bg-white text-gray-500 p-2! my-2.5 rounded-full text-sm hover:text-black hover:font-semibold transition-all cursor-pointer"
             >
               {item}
             </button>
@@ -79,15 +77,15 @@ export default function SearchBar() {
       <div
         className="grid grid-cols-3 gap-8 text-center">
         <div>
-          <p className="text-3xl font-bold text-blue-600">1M+</p>
+          <p className="text-3xl font-bold text-gray-600 ">1M+</p>
           <p className="text-gray-500 text-sm">Products</p>
         </div>
         <div>
-          <p className="text-3xl font-bold text-blue-600">3+</p>
+          <p className="text-3xl font-bold text-gray-600">3+</p>
           <p className="text-gray-500 text-sm">Stores</p>
         </div>
         <div>
-          <p className="text-3xl font-bold text-blue-600">Free</p>
+          <p className="text-3xl font-bold text-gray-600">Free</p>
           <p className="text-gray-500 text-sm">Always</p>
         </div>
       </div>

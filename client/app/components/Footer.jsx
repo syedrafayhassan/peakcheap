@@ -11,14 +11,14 @@ export default function Footer(){
   <h4 className=" flex pl-2! items-center w-[22%] max-sm:py-3.5 max-sm:w-full font-bold text-gray-800">
     Categories
   </h4>
-  <ul className="space-y-2 flex gap-3 flex-wrap">
+  <ul className="space-y-2 flex gap-3 flex-wrap items-baseline">
   <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
-      <Link href="/about" className="text-gray-500 hover:text-blue-600 text-sm transition">
+      <Link href="/about" className="text-gray-500 hover:text-black text-sm transition">
         About Us
       </Link>
     </li>
      <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
-    <Link href="/privacy" className="text-gray-500 hover:text-blue-600 text-sm transition">
+    <Link href="/privacy" className="text-gray-500 hover:text-black text-sm transition">
       Privacy Policy
     </Link>
   </li>
@@ -33,7 +33,7 @@ export default function Footer(){
     <li key={cat.slug}>
     <a
     href={`/category/${cat.slug}`}
-    className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full"
+    className="text-gray-500 dark:text-gray-400 hover:text-black text-sm transition p-2 border-gray-200 rounded-full"
     >
       {cat.name}
     </a>
@@ -50,7 +50,7 @@ export default function Footer(){
                 
           
        
-           <p className="text-gray-400 ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
+           <p className="text-black ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
        
         <div className=" text-gray-400 text-xs text-center">
           
@@ -246,12 +246,12 @@ export default function Footer(){
              </div>
   
         {/* Affiliate Disclaimer - FTC Compliance */}
-      <div className="bg-yellow-50 dark:bg-yellow-900/20 border-t border-yellow-200 dark:border-yellow-800 py-4 px-4 text-center">
+      {/* <div className="bg-yellow-50 dark:bg-yellow-900/20 border-t border-yellow-200 dark:border-yellow-800 py-4 px-4 text-center">
     <p className="text-yellow-800 dark:text-yellow-200 text-sm">
        💡 <strong>Affiliate Disclosure:</strong> PeakCheap earns a commission when you click our links and make a purchase at zero extra cost to you.
     </p>
 
-      </div>
+      </div> */}
            
 
 
