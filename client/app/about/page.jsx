@@ -28,7 +28,7 @@ export default function About(){
 
 
         {/* What is PeakCheap */}
-        <div className="bg-white my-6! p-9 rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+        <div className="bg-white my-6! p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4 dark:text-white">
                What is PeakCheap?
             </h2>
@@ -45,7 +45,7 @@ export default function About(){
                 What Problem Does PeakCheap Solve?
             </h2>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                ONline shoppers waste hours visiting multiple websites to compare prices. PeakCheap solves this by doing all the searching for you in one place. Type any product name and instantly see prices from multiple stores sorted from cheapest to most expensive.
+                Online shoppers waste hours visiting multiple websites to compare prices. PeakCheap solves this by doing all the searching for you in one place. Type any product name and instantly see prices from multiple stores sorted from cheapest to most expensive.
             </p>
         </div>
 
@@ -129,7 +129,7 @@ export default function About(){
                  PeakCheap is a price comparison tool and participates in affiliate programs including eBay Partner Network and AliExpress Affiliate Program. We earn a small commission when you click our links and make a purchase, at absolutely zero extra cost to you. This helps us kepp PeakCheap free for everyone.
                </p>
             </div>
-            
+
         </div>
     )
 }
