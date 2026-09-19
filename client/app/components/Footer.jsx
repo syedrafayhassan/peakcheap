@@ -50,7 +50,7 @@ export default function Footer(){
                 
           
        
-           <p className="text-black ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
+           <p className="text-gray-500 ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
        
         <div className=" text-gray-400 text-xs text-center">
           
@@ -244,14 +244,6 @@ export default function Footer(){
         </div>
 
              </div>
-  
-        {/* Affiliate Disclaimer - FTC Compliance */}
-      {/* <div className="bg-yellow-50 dark:bg-yellow-900/20 border-t border-yellow-200 dark:border-yellow-800 py-4 px-4 text-center">
-    <p className="text-yellow-800 dark:text-yellow-200 text-sm">
-       💡 <strong>Affiliate Disclosure:</strong> PeakCheap earns a commission when you click our links and make a purchase at zero extra cost to you.
-    </p>
-
-      </div> */}
            
 
 

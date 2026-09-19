@@ -47,8 +47,8 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
     return(
         <div
         id={`product-${product.id}`}
-         className={`bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col
-         ${isHighlighted ? 'border-2 border-blue-500 ring-2 ring-blue-300 ring-offset-2 ': 'border border-y-gray-100'}`}>
+         className={`bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col border-2 
+         ${isHighlighted ? 'border-2 border-blue-500 ring-2 ring-blue-300 ring-offset-2 ': 'border-black border-x-0'}`}>
 
             {/* { Highlight Badge } */}
             {isHighlighted && (
@@ -83,22 +83,23 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
         </div>
 
         {/* { Product Info } */}
-        <div className="flex flex-col flex-1" >
+        <div className="grid grid-cols-3 grid-rows-3 p-3 gap-2.5" >
 
         {/* { Name } */}
             <a href={product.url}
+        className="col-start-1 col-end-4 row-start-1 row-end-2"
         target="_blank"
         rel="noopener noreferrer">
 
-        <h3 className="text-gray-800 font-semibold text-sm line-clamp-2 flex-1">
+        <h3 className="text-gray-800 font-semibold text-sm line-clamp-2">
             {product.name}
         </h3>
 
 </a>
 
         {/* { Price } */}
-        <div className="flex items-center justify-between">
-            <span className="text-2xl font-extrabold text-blue-600">
+        <div className="col-start-2 col-end-4 row-start-2 row-end-3 text-end">
+            <span className="text-2xl font-extrabold text-blue-600 m-1.5">
                 ${product.price}
             </span>
             <span className="text-gray-400 text-xs">
@@ -111,14 +112,14 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
         href={product.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-blue-600 text-white text-center rounded-xl font-semibold text-sm hover:bg-blue-700 transition-all duration-200">
-Buy Now →
+        className="bg-blue-600 text-white text-center rounded-xl font-semibold text-sm hover:bg-blue-700 transition-all duration-200 col-start-3 col-end-3 row-start-3 row-end-4 p-2 border-none">
+Buy
 
 </a>
         {/* Share Button */}
         
       <button onClick={ handleShare }
-      className={`rounded-xl text-sm font-semibold transition-all duration-200
+      className={`rounded-xl text-sm font-semibold transition-all duration-200 col-start-1 col-end-3 row-start-3 row-end-3
       ${ copied ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
       >
         { copied ? ('✅') : (
