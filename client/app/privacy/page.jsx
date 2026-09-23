@@ -512,7 +512,7 @@ export default function PrivacyPolicy() {
       </section>
 
       {/* Contact */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 shadow-sm p-8">
+      <section className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 shadow-sm p-8">
         <h2 className="text-2xl font-bold mb-6 text-gray-900">
           16. Contact Us
         </h2>

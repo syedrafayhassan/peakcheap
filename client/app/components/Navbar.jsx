@@ -41,37 +41,9 @@ export default function Navbar() {
       
       >
         {isOpen ? (
- "x"
+ <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill="currentColor" d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"></path></svg>
 ) : (
-   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    x="0px"
-    y="0px"
-    width="16"
-    height="16"
-    viewBox="0 0 48 48"
-  >
-    <path d="M39,29H9c-1.657,0-3-1.343-3-3v-3h36v3C42,27.657,40.657,29,39,29z" />
-    <path
-      fill="#fff"
-      d="M39,27H9c-1.105,0-2-0.895-2-2v-3h34v3C41,26.105,40.105,27,39,27z"
-    />
-    <path d="M39,28H9c-1.654,0-3-1.346-3-3v-3c0-0.553,0.448-1,1-1h34c0.552,0,1,0.447,1,1v3C42,26.654,40.654,28,39,28z M8,23v2c0,0.552,0.449,1,1,1h30c0.551,0,1-0.448,1-1v-2H8z" />
-
-    <path d="M39,17H9c-1.657,0-3-1.343-3-3v-3h36v3C42,15.657,40.657,17,39,17z" />
-    <path
-      fill="#fff"
-      d="M39,15H9c-1.105,0-2-0.895-2-2v-3h34v3C41,14.105,40.105,15,39,15z"
-    />
-    <path d="M39,16H9c-1.654,0-3-1.346-3-3v-3c0-0.553,0.448-1,1-1h34c0.552,0,1,0.447,1,1v3C42,14.654,40.654,16,39,16z M8,11v2c0,0.552,0.449,1,1,1h30c0.551,0,1-0.448,1-1v-2H8z" />
-
-    <path d="M39,41H9c-1.657,0-3-1.343-3-3v-3h36v3C42,39.657,40.657,41,39,41z" />
-    <path
-      fill="#fff"
-      d="M39,39H9c-1.105,0-2-0.895-2-2v-3h34v3C41,38.105,40.105,39,39,39z"
-    />
-    <path d="M39,40H9c-1.654,0-3-1.346-3-3v-3c0-0.553,0.448-1,1-1h34c0.552,0,1,0.447,1,1v3C42,38.654,40.654,40,39,40z M8,35v2c0,0.552,0.449,1,1,1h30c0.551,0,1-0.448,1-1v-2H8z" />
-  </svg>
+  <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill="currentColor" d="M3 4H21V6H3V4ZM3 11H15V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
 )}
       </button>
 
@@ -83,14 +55,14 @@ export default function Navbar() {
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
-          className="text-gray-500 hover:text-blue-600 transition text-base"
+          className="text-gray-500 text-sm hover:text-blue-600 transition"
         >
           Home
         </Link>
         <Link
         href="/about"
         onClick={() => setIsOpen(false)}
-        className="text-gray-500 hover:text-blue-600 transition text-base"        
+        className="text-gray-500 text-sm hover:text-blue-600 transition"
         >
           About
         </Link>

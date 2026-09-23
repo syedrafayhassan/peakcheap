@@ -7,7 +7,7 @@ export default function Footer(){
     return(
         <footer className="bg-gray-50 border-t border-gray-200 ">
               {/* Quick Links */}
-<div className="flex items-center max-sm:flex-col max-sm:pt-3.5 py-4">
+<div className="flex max-sm:px-2.5 items-center max-sm:flex-col max-sm:pt-3.5 py-4">
   <h4 className=" flex pl-2! items-center w-[22%] max-sm:py-3.5 max-sm:w-full font-bold text-gray-800">
     Categories
   </h4>

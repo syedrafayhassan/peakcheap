@@ -91,7 +91,7 @@ export default async function CategoryPage({ params }) {
         {/* { Header } */}
 
         <div className="mb-10">
-        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+        <h1 className="max-sm:text-2xl text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
             {info.title}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 text-lg">
@@ -101,15 +101,15 @@ export default async function CategoryPage({ params }) {
 
         {/* Popular Searches */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8 mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+        <h2 className="max-sm:text-lg text-2xl font-bold text-gray-800 dark:text-white mb-6">
             Popular {info.title} Searches
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid items-center grid-cols-2 md:grid-cols-4 gap-4">
             {info.searches.map((search) => (
                 <a
                 key={search}
                 href={`/search?query=${encodeURIComponent(search)}`}
-                className="bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-3 rounded-xl text-center font-medium hover:bg-blue-100 transition-all"
+                className="bg-blue-50 max-sm:text-xs dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-3 rounded-xl text-center font-medium hover:bg-blue-100 transition-all"
                 >
                 {search}  
                 </a>    
@@ -120,7 +120,7 @@ export default async function CategoryPage({ params }) {
 
         {/* Keywords Section - Good for SEO! */}
         <div className="bg-white dark:bg-gray-8-- rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8 mb-8">
-        <h2 className="text-2xl font-bold text-gray 800 dark:text-white mb-4">
+        <h2 className="max-sm:text-lg text-2xl font-bold text-gray 800 dark:text-white mb-4">
             Why Use PeakCheap for {info.title}?
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
