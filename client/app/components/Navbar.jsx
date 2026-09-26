@@ -37,6 +37,7 @@ export default function Navbar() {
       {/* Burger Icon - Mobile Only */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open Menu"
         className="md:hidden text-gray-600 hover:text-blue-600 transition text-3xl"
       
       >

@@ -22,7 +22,7 @@ export default function SearchBar() {
 
       {/* Heading */}
       <h1
-        className="max-sm:text-3xl text-5xl font-extrabold text-gray-900 text-center mb-4 dark:text-white leading-tight">
+        className="max-sm:text-3xl text-5xl font-extrabold text-gray-900 text-center mb-4 leading-tight">
         <span className="text-blue-600"> Find Cheapest Deals  </span> & <br />
         Compare Prices 
       </h1>

@@ -8,17 +8,17 @@ export default function Footer(){
         <footer className="bg-gray-50 border-t border-gray-200 ">
               {/* Quick Links */}
 <div className="flex max-sm:px-2.5 items-center max-sm:flex-col max-sm:pt-3.5 py-4">
-  <h4 className=" flex pl-2! items-center w-[22%] max-sm:py-3.5 max-sm:w-full font-bold text-gray-800">
+  <h3 className=" flex pl-2! items-center w-[22%] max-sm:py-3.5 max-sm:w-full font-bold text-gray-800">
     Categories
-  </h4>
+  </h3>
   <ul className="space-y-2 flex gap-3 flex-wrap items-baseline">
   <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
-      <Link href="/about" className="text-gray-500 hover:text-black text-sm transition">
+      <Link href="/about" className="text-grey-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition">
         About Us
       </Link>
     </li>
      <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
-    <Link href="/privacy" className="text-gray-500 hover:text-black text-sm transition">
+    <Link href="/privacy" className="text-grey-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition">
       Privacy Policy
     </Link>
   </li>
@@ -33,7 +33,7 @@ export default function Footer(){
     <li key={cat.slug}>
     <a
     href={`/category/${cat.slug}`}
-    className="text-gray-500 dark:text-gray-400 hover:text-black text-sm transition p-2 border-gray-200 rounded-full"
+    className="text-grey-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition p-2 border-gray-200 rounded-full"
     >
       {cat.name}
     </a>
@@ -50,7 +50,7 @@ export default function Footer(){
                 
           
        
-           <p className="text-gray-500 ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
+           <p className="text-gray-500 dark:text-gray-400 font-semibold ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
        
         <div className=" text-gray-400 text-xs text-center">
           
