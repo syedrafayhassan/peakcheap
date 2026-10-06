@@ -1,9 +1,16 @@
-"use client"
 
 import { Suspense } from "react"
 import SearchResults from "../components/SearchResults"
 import SkeletonCard from "../components/SkeletonCard"
 
+
+// Block search pages from index (prevent index bloat!)
+export const metadata = {
+    robots: {
+        index: false,
+        follow: true,
+    }
+}
 
 export default function SearchPage(){
     return (

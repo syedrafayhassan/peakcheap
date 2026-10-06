@@ -2,7 +2,11 @@
 
 export default function sitemap (){
     const categories = [
-        'phones', 'laptops', 'watches', 'fashion', 'sports', 'cameras'
+        'phones', 'laptops', 'watches', 'fashion', 'sports', 'cameras', 'headphones', 'tablets',
+    ]
+
+    const popularSearches =[
+        'iphone', 'samsung', 'macbook', 'nike-shoes', 'apple-watch', 'airpods', 'ps5', 'gaming-laptop',
     ]
 
     return [
@@ -30,6 +34,13 @@ export default function sitemap (){
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.9,
-        }))
+        })),
+       // Popular search pages
+       ...popularSearches.map(search => ({
+        url: `https://www.peakcheap.com/deals/${search}`,
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+       })),
     ]
 }

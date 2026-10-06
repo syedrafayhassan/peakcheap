@@ -98,7 +98,7 @@ const filteredProducts = useMemo(() => {
 
 
 return (
-    <div className="max-w-6xl m-12!">
+    <div className="max-w-6xl max-sm:w-11/12 max-sm:mx-auto m-12">
 
        { /* { Search Header } */}
         <div className="py-14">
@@ -107,7 +107,7 @@ return (
                 <span className="text-blue-600">"{query}"</span>
             </h2>
             <p className="text-gray-500">
-                {filteredProducts.length} products found
+                {filteredProducts.length ? `${filteredProducts.length} Products found` : "Searching..."}
             </p>
         </div>
 

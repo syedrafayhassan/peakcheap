@@ -1,6 +1,3 @@
-
-
-
 export default function robots() {
     return {
         rules: [
@@ -10,6 +7,7 @@ export default function robots() {
                 disallow: [
                     '/api/',
                     '/share/',
+                    '/search',
                     '/learn-forex-and-get-paid-from-mt5-forum',
                 ],
             },

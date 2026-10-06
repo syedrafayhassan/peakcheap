@@ -4,22 +4,24 @@ import { useRouter } from "next/navigation";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
+  const [emptySearch, setEmptySearch] = useState("");
   const router = useRouter();
 
   const handleSearch = () => {
     if (query.trim()) {
       router.push(`/search?query=${query}`);
     }
+    else {
+     setEmptySearch("Are you searching for inner peace?")
+     setTimeout(() => {
+      setEmptySearch('');
+     }, 2000);
+    }
   };
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 flex flex-col items-center justify-center">
-      {/* Badge */}
-      <div
-        className=" text-black max-sm:text-[8px] shadow-[0px_0px_0px_2px_rgba(6,24,44,0.4),0px_4px_6px_-1px_rgba(6,24,44,0.65),inset_0px_1px_0px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-2xl text-sm font-medium transition-all hover:bg-gray-200 border-0 cursor-pointer">
-        Compare prices from 3+ stores instantly
-      </div>
-
+  
       {/* Heading */}
       <h1
         className="max-sm:text-3xl text-5xl font-extrabold text-gray-900 text-center mb-4 leading-tight">
@@ -27,28 +29,30 @@ export default function SearchBar() {
         Compare Prices 
       </h1>
 
-      {/* Subheading */}
-      <p
-        className="max-sm:text-sm max-sm:px-7 text-gray-500 text-xl mb-4 text-center max-w-2xl">
-        PeakCheap compares prices from multiple online stores so you can find the best deal without checking every store yourself.
-      </p>
+     
 
       {/* Search Box */}
       <div
         className="flex w-full max-w-2xl bg-white rounded-2xl shadow-xl mt-4! border border-gray-100 overflow-hidden">
         <input
           type="text"
-          placeholder="Search for any product..."
+          placeholder= {emptySearch ? emptySearch : "Search anything you want"}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-          className="flex-1 p-4! max-sm:text-sm text-lg outline-none text-gray-700 placeholder-gray-400"/>
+          className={"flex-1 p-4! max-sm:text-sm text-lg outline-none text-gray-700 placeholder-gray-400"} />
         <button
           onClick={handleSearch}
-          className="max-sm:text-sm bg-blue-600 text-white p-3 text-lg font-semibold hover:bg-blue-700 transition-all duration-200">
+          className="max-sm:text-sm bg-blue-600 cursor-pointer text-white p-3 text-lg font-semibold hover:bg-blue-700 transition-all duration-200">
           Search 🧙
         </button>
       </div>
+
+       {/* Subheading */}
+      <p
+        className="max-sm:text-xs max-sm:px-7 max-sm:w-dvw text-gray-600 tracking-[0.5px] mb-4 text-center max-w-2xl w-[40%] text-[16px] mt-8">
+        PeakCheap compares prices from multiple online stores so you can find the best deal without checking every store yourself.
+      </p>
 
       {/* Popular Searches */}
       <div

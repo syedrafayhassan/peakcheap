@@ -5,52 +5,60 @@ import Link from "next/link";
 
 export default function Footer(){
     return(
-        <footer className="bg-gray-50 border-t border-gray-200 ">
+        <footer className="bg-gray-50 border-t px-6 border-gray-200 grid grid-cols-4 grid-rows-1 text-center gap-1.25 max-sm:grid-cols-[9rem_9rem] max-sm:grid-rows-[1fr_auto_auto]">
               {/* Quick Links */}
-<div className="flex max-sm:px-2.5 items-center max-sm:flex-col max-sm:pt-3.5 py-4">
-  <h3 className=" flex pl-2! items-center w-[22%] max-sm:py-3.5 max-sm:w-full font-bold text-gray-800">
-    Categories
+<div className="flex flex-col max-sm:px-2.5 items-center max-sm:flex-col max-sm:pt-3.5 py-4">
+  <h3 className=" flex items-center w-[22%] max-sm:text-sm max-sm:py-3.5 max-sm:w-full max-sm:pt-0 font-bold text-gray-800">
+    Company
   </h3>
   <ul className="space-y-2 flex gap-3 flex-wrap items-baseline">
-  <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
+  <li className="text-gray-500 dark:text-gray-400 max-sm:p-0  max-sm:text-xs text-sm transition p-2 border-gray-200 rounded-full">
       <Link href="/about" className="text-grey-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition">
         About Us
       </Link>
     </li>
-     <li className="text-gray-500 dark:text-gray-400 hover:text-blue-600 text-sm transition p-2 border-gray-200 rounded-full">
-    <Link href="/privacy" className="text-grey-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition">
+     <li className="text-gray-500 dark:text-gray-400 max-sm:p-0 max-sm:text-xs text-sm transition p-2 border-gray-200 rounded-full">
+    <Link href="/privacy" className="text-gray-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition">
       Privacy Policy
     </Link>
   </li>
-  {[
-    { name: 'Phone Deals', slug: 'phones' },
-    { name: 'Laptop Deals', slug: 'laptops' },
-    { name: 'Watch Deals', slug: 'watches' },
-    { name: 'Fashion Deals', slug: 'fashion' },
-    { name: 'Sports Deals', slug: 'sports' },
-    { name: 'Cameras Deals', slug: 'cameras' },
-  ].map((cat) => (
-    <li key={cat.slug}>
-    <a
-    href={`/category/${cat.slug}`}
-    className="text-grey-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition p-2 border-gray-200 rounded-full"
-    >
-      {cat.name}
-    </a>
-    </li>
-  ))
-  }
-
+  
 
 
   </ul>
 </div>
+
+{/* Popular Deals Column */}
+<div className=" flex flex-col max-sm:px-2.5 items-center max-sm:flex-col max-sm:pt-3.5 py-4">
+  <h4 className="font-bold text-gray-800 max-sm:text-sm dark:text-white mb-3">
+    Popular Deals
+  </h4>
+
+  <ul className="space-y-2 flex justify-between gap-0 max-sm:gap-3 flex-wrap items-baseline">
+    {[
+      { name: 'iPhone Deals', slug: 'iphone' },
+      { name: 'Samsung Deals', slug: 'samsung' },
+      { name: 'MacBook Deals', slug: 'macbook' },
+      { name: 'Nike Deals', slug: 'nike-shoes' },
+      { name: 'Apple Deals', slug: 'apple-watch' },
+      { name: 'AirPods Deals', slug: 'airpods' },
+    ].map((deal) =>(
+      <li key={deal.slug}>
+      <a
+      href={`/deals/${deal.slug}`}
+      className="text-gray-500 dark:text-gray-400 font-semibold max-sm:text-xs hover:text-black text-sm transition p-2 border-gray-200 rounded-full"
+      >
+      {deal.name}
+      </a>
+      </li>
+    ))
+    
+    }
+  </ul>
+
+</div>
         {/* { Copyright } */}
-            <div className="max-w-6xl flex justify-between max-sm:gap-3.5 max-sm:flex-col-reverse max-sm:py-3.5 items-center">
-                
-          
-       
-           <p className="text-gray-500 dark:text-gray-400 font-semibold ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
+            <div className="max-w-6xl flex justify-end max-sm:col-span-2  max-sm:gap-3.5 max-sm:flex-col-reverse max-sm:py-3.5 items-center">
        
         <div className=" text-gray-400 text-xs text-center">
           
@@ -245,7 +253,7 @@ export default function Footer(){
 
              </div>
            
-
+ <p className="text-gray-500 flex items-center max-sm:col-span-2 dark:text-gray-400 font-semibold ml-2!">  © {new Date().getFullYear()} PeakCheap. All rights reserved.</p>
 
 
 
