@@ -77,7 +77,7 @@ export default function ProductCard({ product, isHighlighted, index, searchQuery
                 )}
 
                 {/* { Platform Badge } */}
-                <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold rounded-full" >
+                <div className="absolute top-3 right-3 text-white text-xs font-bold px-1.5 py-0.75 bg-[radial-gradient(circle,rgba(164,144,124,1)_74%,rgba(141,123,104,1)_100%)] rounded-[19%] shadow-[0_1px_0_rgba(27,31,35,0.04),inset_0_1px_0_rgba(255,255,255,0.25)]" >
                     {product.platform}
                 </div>
         </div>

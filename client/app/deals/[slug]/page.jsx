@@ -321,8 +321,8 @@ export default async function DealsPage({ params }) {
           ].map((term) => (
             <a
               key={term}
-              href={`/serach?query=${encodeURIComponent(term)}`}
-              className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full text-sm hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-lue-600 transition-all"
+              href={`/search?query=${encodeURIComponent(term)}`}
+              className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full text-sm hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-all"
             >
               {term}
             </a>
