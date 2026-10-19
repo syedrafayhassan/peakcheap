@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Script from "next/script";
 import AffiliateBanner from "./components/AffiliateBanner";
 import robots from "./robots";
+// import { LocationProvider } from "./context/LocationContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +24,30 @@ export const metadata = {
     default: "PeakCheap - The Open Price Comparison Engine"
   },
   description: "PeakCheap is the open price comparison engine.Compare prices from eBay and AliExpress instantly to find the cheapest deals without checking every store yourself.",
+
+  // Add icons here !
+  icons: {
+  icon: [
+    { url: './favicon_io/favicon.ico' },
+    { url: './favicon_io/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: './favicon_io/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+  ],
+  apple: [
+    { url: './favicon_io/apple-touch-icon.png', sizes: '180x180' },
+  ],
+  other: [
+    {
+      rel: 'android-chrome-192x192',
+      url: './favicon_io/android-chrome-192x192.png',
+    },
+    {
+      rel: 'android-chrome-512x512',
+      url: './favicon_io/android-chrome-512x512.png',
+    },
+
+  ],
+  },
+
   keywords: [
     "price comparison",
     "peakcheap",
