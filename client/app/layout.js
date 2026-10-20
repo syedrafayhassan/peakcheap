@@ -85,7 +85,7 @@ export const metadata = {
     other: {
       'p:domain_verify': 'd589e6b8827553081322f085a09cf75d',
       'mitgo-verification': 'd395090c-51be-4b15-95eb-1776ad67835c',
-      'impact-site-verification': 'ec3b6e70-01a4-4d56-9c00-3f08871e9f56',
+      'impact-site-verification': 'a9f5831e-ce95-4d27-9da8-d2aede8b20a7',
     }
   },
   robots: {
