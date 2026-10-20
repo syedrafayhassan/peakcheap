@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer(){
     return(
-        <footer className="bg-gray-50 border-t px-6 border-gray-200 grid grid-cols-4 grid-rows-1 text-center gap-1.25 max-sm:grid-cols-[9rem_9rem] max-sm:grid-rows-[1fr_auto_auto]">
+        <footer className="bg-gray-50 border-t px-6 border-gray-200 max-sm:mx-auto grid grid-cols-4 grid-rows-1 text-center gap-1.25 max-sm:grid-cols-[9rem_9rem] max-sm:grid-rows-[1fr_auto_auto]">
               {/* Quick Links */}
 <div className="flex flex-col max-sm:px-2.5 items-center max-sm:flex-col max-sm:pt-3.5 py-4">
   <h3 className=" flex items-center w-[22%] max-sm:text-sm max-sm:py-3.5 max-sm:w-full max-sm:pt-0 font-bold text-gray-800">
@@ -13,12 +13,12 @@ export default function Footer(){
   </h3>
   <ul className="space-y-2 flex gap-3 flex-wrap items-baseline">
   <li className="text-gray-500 dark:text-gray-400 max-sm:p-0  max-sm:text-xs text-sm transition p-2 border-gray-200 rounded-full">
-      <Link href="/about" className="text-grey-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition">
+      <Link href="/about" className="text-grey-500 dark:text-gray-400 font-medium sm:hover:text-[#101828] sm:hover:font-bold text-sm transition">
         About Us
       </Link>
     </li>
      <li className="text-gray-500 dark:text-gray-400 max-sm:p-0 max-sm:text-xs text-sm transition p-2 border-gray-200 rounded-full">
-    <Link href="/privacy" className="text-gray-500 dark:text-gray-400 font-semibold hover:text-black text-sm transition">
+    <Link href="/privacy" className="text-gray-500 dark:text-gray-400 font-medium sm:hover:text-[#101828] sm:hover:font-bold text-sm transition">
       Privacy Policy
     </Link>
   </li>
@@ -29,12 +29,12 @@ export default function Footer(){
 </div>
 
 {/* Popular Deals Column */}
-<div className=" flex flex-col max-sm:px-2.5 items-center max-sm:flex-col max-sm:pt-3.5 py-4">
+<div className=" flex flex-col max-sm:px-2.5 items-center max-sm:flex-col max-sm:items-start max-sm:pt-3.5 py-4">
   <h4 className="font-bold text-gray-800 max-sm:text-sm dark:text-white mb-3">
     Popular Deals
   </h4>
 
-  <ul className="space-y-2 flex justify-between gap-0 max-sm:gap-3 flex-wrap items-baseline">
+  <ul className="space-y-2 flex justify-between gap-1.5 max-sm:gap-3 flex-wrap items-baseline">
     {[
       { name: 'iPhone Deals', slug: 'iphone' },
       { name: 'Samsung Deals', slug: 'samsung' },
@@ -46,7 +46,7 @@ export default function Footer(){
       <li key={deal.slug}>
       <a
       href={`/deals/${deal.slug}`}
-      className="text-gray-500 dark:text-gray-400 font-semibold max-sm:text-xs hover:text-black text-sm transition p-2 border-gray-200 rounded-full"
+      className="text-gray-500 dark:text-gray-400 font-medium max-sm:pl-0 sm:hover:text-[#101828] sm:hover:font-bold text-sm transition p-2 border-gray-200 rounded-full"
       >
       {deal.name}
       </a>
@@ -64,7 +64,7 @@ export default function Footer(){
           
              <ul className="flex items-center gap-3.5 max-sm:gap-6 max-sm:tracking[2px] max-sm:text-center">
                 <li>
-                    <a href="https://instagram.com/peakcheap" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 text-sm transition">
+                    <a href="https://instagram.com/peakcheap" target="_blank" rel="noopener noreferrer" className="text-gray-500 font-medium sm:hover:text-[#101828] sm:hover:font-bold text-sm transition">
                            <svg 
       xmlns="http://w3.org" 
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -95,7 +95,7 @@ export default function Footer(){
                 </li>
                 
                 <li>
-                    <a href="https://tiktok.com/@peakcheap" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 text-sm transition">
+                    <a href="https://tiktok.com/@peakcheap" target="_blank" rel="noopener noreferrer" className="text-gray-500 font-medium sm:hover:text-[#101828] sm:hover:font-bold text-sm transition">
                          <svg 
       id="Layer_2" 
       xmlns="http://w3.org"
@@ -138,7 +138,7 @@ export default function Footer(){
                 </li>
                 
                 <li>
-                    <a href="https://www.facebook.com/people/PeakCheap/61590912994034/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 text-sm transition">
+                    <a href="https://www.facebook.com/people/PeakCheap/61590912994034/" target="_blank" rel="noopener noreferrer" className="text-gray-500 font-medium sm:hover:text-[#101828] sm:hover:font-bold text-sm transition">
                      <svg xmlns="http://w3.org" viewBox="0 0 666.667 666.667" className="w-6 h-6">
         <defs>
           <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -175,7 +175,7 @@ export default function Footer(){
                 </li>
                 
                 <li>
-                    <a href="https://reddit.com/u/PeakCheapHQ" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 text-sm transition">
+                    <a href="https://reddit.com/u/PeakCheapHQ" target="_blank" rel="noopener noreferrer" className="text-gray-500 sm:hover:text-[#101828] font-medium sm:hover:font-bold text-sm transition">
                             <svg 
   xmlns="http://w3.org"
   xmlnsXlink="http://www.w3.org/1999/xlink"

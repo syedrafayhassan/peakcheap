@@ -84,7 +84,8 @@ export const metadata = {
     google: "TVwr8Dq2_aMgt_w_2CZfotMjiOOYrOz6Pp4n5wIGXGo",
     other: {
       'p:domain_verify': 'd589e6b8827553081322f085a09cf75d',
-      'mitgo-verification': 'd395090c-51be-4b15-95eb-1776ad67835c'
+      'mitgo-verification': 'd395090c-51be-4b15-95eb-1776ad67835c',
+      'impact-site-verification': 'ec3b6e70-01a4-4d56-9c00-3f08871e9f56',
     }
   },
   robots: {

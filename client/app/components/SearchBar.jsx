@@ -20,7 +20,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-linear-to-br py-32 from-blue-50 via-white to-purple-50 flex flex-col items-center justify-center">
   
       {/* Heading */}
       <h1
@@ -43,7 +43,7 @@ export default function SearchBar() {
           className={"flex-1 p-4! max-sm:text-sm text-lg outline-none text-gray-700 placeholder-gray-400"} />
         <button
           onClick={handleSearch}
-          className="max-sm:text-sm bg-blue-600 cursor-pointer text-white p-3 text-lg font-semibold hover:bg-blue-700 transition-all duration-200">
+          className="max-sm:text-sm bg-blue-600 cursor-pointer text-white p-3 text-lg font-semibold hover:bg-[#101828] transition-all duration-200">
           Search 🧙
         </button>
       </div>
@@ -69,7 +69,7 @@ export default function SearchBar() {
                 setQuery(item);
                 router.push(`/search?query=${item}`);
               }}
-              className="bg-white text-gray-500 p-2! my-2.5 rounded-full text-sm hover:text-black hover:font-semibold transition-all cursor-pointer"
+              className="bg-white text-gray-500 p-2! my-2.5 rounded-full text-sm sm:hover:text-[#101828] sm:hover:font-bold transition-all cursor-pointer"
             >
               {item}
             </button>

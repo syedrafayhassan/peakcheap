@@ -20,16 +20,16 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="md:flex hidden gap-6 items-center">
           <Link href="/" className="text-gray-500 
-          hover:text-blue-600 transition text-sm">
+          hover:text-[#101828] hover:font-bold transition text-sm">
             Home
           </Link>
           <Link href="/about" className="text-gray-500 
-          hover:text-blue-600 transition text-sm">
+          hover:text-[#101828] hover:font-bold transition text-sm">
             About
           </Link>
           <button className=" px-3 py-1.5 bg-blue-600 text-white 
            rounded-lg text-sm font-medium 
-          hover:bg-blue-700 transition">
+          hover:bg-[#101828] hover:font-bold transition">
             Get Started
           </button>
         </div>
