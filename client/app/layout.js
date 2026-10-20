@@ -85,7 +85,6 @@ export const metadata = {
     other: {
       'p:domain_verify': 'd589e6b8827553081322f085a09cf75d',
       'mitgo-verification': 'd395090c-51be-4b15-95eb-1776ad67835c',
-      'impact-site-verification': 'a9f5831e-ce95-4d27-9da8-d2aede8b20a7',
     }
   },
   robots: {
@@ -138,6 +137,8 @@ export default function RootLayout({ children }) {
      suppressHydrationWarning={true}
     >
     <head>
+        {/* Impact.com verification - needs value not content! */}
+        <meta name='impact-site-verification' value='bccdf8c6-8db1-4932-9c4e-d8a5771ee636' />
       <script type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteSchema, organizationSchema])
        }} 
